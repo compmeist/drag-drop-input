@@ -1,0 +1,34 @@
+
+<title>Drag Drop Input Demo</title>
+  <script src="drag-drop-input.js"></script>
+  <style>
+    drag-drop-input input {
+      width: 220px;
+      font-size: 1.1rem;
+      padding: 10px;
+      border: 2px solid #007bff;
+      border-radius: 6px;
+      transition: border-color 0.2s;
+    }
+    drag-drop-input input.drag-over {
+      border-color: #28a745;
+      background: #eaffea;
+    }
+  </style>
+</head>
+<body>
+  <h3>Plain HTML Example</h3>
+  <drag-drop-input id="one" value="Try dragging this text" placeholder="Input one"></drag-drop-input>
+  <drag-drop-input id="two" placeholder="Drop here" style="border-radius: 2px;"></drag-drop-input>
+  <div>
+    <button onclick="alert(document.getElementById('two').value)">Show value of second input</button>
+  </div>
+  <script>
+    // Listen for value changes via input event
+    document.getElementById('two').addEventListener('input', e => {
+      console.log('Input 2 value changed:', e.target.value);
+    });
+    // You can also set value via JS:
+    // document.getElementById('two').value = "Hello world!";
+  </script>
+</body>
