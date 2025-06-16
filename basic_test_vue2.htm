@@ -1,0 +1,57 @@
+ <title>Drag Drop Input Demo</title>
+  <script src="drag-drop-input.js"></script>
+  <script src="/js/vue2/vue.js"></script>
+
+  <style>
+    drag-drop-input input {
+      width: 220px;
+      font-size: 1.1rem;
+      padding: 10px;
+      border: 2px solid #007bff;
+      border-radius: 6px;
+      transition: border-color 0.2s;
+    }
+    drag-drop-input input.drag-over {
+      border-color: #28a745;
+      background: #eaffea;
+    }
+  </style>
+</head>
+<body>
+  <h3>Vue Ex</h3>
+  <div id="vueApp">
+    <drag-drop-input v-model="datext" placeholder="Input one"></drag-drop-input>
+    <drag-drop-input
+      v-model="datext2"
+      ref="draginput"
+      placeholder="Type or drop here"
+      @input="datext2 = $event.target.value"
+      style="margin-bottom:16px;"
+    ></drag-drop-input>
+    <p>Current value: {{ datext2 }}</p>
+    <button @click="alertValue">Show value</button>
+  </div>
+
+  
+  <script>
+    var vm = new Vue({
+      el:'#vueApp'
+      ,data: function() {
+         return {
+          datext:'this is the text'
+          ,datext2:'text 2'
+         }
+      }
+      ,watch:{
+        datext2: function(newVal) {
+          console.log(`Vue:datext2 is ${newVal}`);
+        }
+      }
+      ,methods: {
+        alertValue: function() {
+          alert(this.datext2);
+        }
+      }
+    });
+  </script>
+</body>
