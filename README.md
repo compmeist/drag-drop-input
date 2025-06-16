@@ -1,6 +1,6 @@
-# drag-drop-input
+# drag-drop-input HTML tag
 Select, drag and drop text between HTML input tags (native Web Component)
-
-### <drag-drop-input>  dragged text payload overwrites on drop 
+       
+###  dragged text payload overwrites on drop 
 
 
